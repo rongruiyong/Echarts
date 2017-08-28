@@ -3,6 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>数据库获取数据</title>
+	<style>
+		#div1 {
+			width: 400px;
+			height: 400px;
+		}
+	</style>
 	<script src="js/jquery-1.11.0.min.js"></script>
 	<script src="js/echarts.js"></script>
 	<script>
@@ -14,11 +20,19 @@
 					text: "数据库获取数据"
 				},
 				legend: {
-					show: true;
+					show: true,
 					data: ['销量']
 				},
 				xAxis: {
 					data: ['黄瓜', '西红柿', '茄子', '土豆']
+				},
+				yAxis: {
+
+				},
+				series: {
+					name: '销量',
+					type: 'bar',
+					data: [100, 200, 150, 250]
 				}
 			})
 		})
