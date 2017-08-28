@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据库获取数据</title>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/echarts.js"></script>
+	<script>
+		$(function(){
+			var div1 = $("#div1").get(0);
+			var myChart = echarts.init(div1);
+			myChart.setOption({
+				title: {
+					text: "数据库获取数据"
+				},
+				legend: {
+					show: true;
+					data: ['销量']
+				},
+				xAxis: {
+					data: ['黄瓜', '西红柿', '茄子', '土豆']
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

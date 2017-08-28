@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>饼状图</title>
+	<script src="js/echarts.js"></script>
+	<script>
+		window.onload = function(){
+			var div1 = document.getElementById("div1");
+			var myChart = echarts.init(div1);
+			var option = {
+				title: {
+					text: '饼状图示例'
+				},
+				tooltip: {
+					trigger: "item",
+					formatter: "{a} <br />{b} : {c} ({d}%)"
+				},
+				legend: {
+					orient: 'vertical',
+					left: 'center',
+					data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+				},
+				series: [
+				{
+					name: '访问来源',
+					type: 'pie',
+					radius: '55%',
+					center: ["50%", "60%"],
+					data: [
+						{value:335, name:'直接访问'},
+						{value:310, name:'邮件营销'},
+						{value:234, name:'联盟广告'},
+						{value:135, name:'视频广告'},
+						{value:1548, name:'搜索引擎'}
+					]
+				}]
+			}
+			myChart.setOption(option);
+		}
+	</script>
+	<style>
+		#div1{
+			width: 600px;
+			height: 600px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		
+	</div>
+</body>
+</html>

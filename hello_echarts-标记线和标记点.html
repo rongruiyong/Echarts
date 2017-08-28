@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>hello, echarts</title>
+	<style>
+		div#charts{
+			width: 600px;
+			height: 400px;
+			border: 10px solid #090;
+		}
+	</style>
+	<script type="text/javascript" src="js/echarts.js"></script>
+</head>
+<body>
+	<div id="charts"></div>
+<script>
+	var myChart = echarts.init(document.getElementById("charts"));
+	var option = {
+		title: {
+			show: true,
+			text: 'Hello, Echarts',
+			subtext: 'Hello, Echarts!',
+			left:'left',
+			borderColor: '#09f',
+			borderWidth: 2,
+			textStyle: {
+				fontSize: 12
+			}
+		},
+        toolbox: {
+            orient: 'vertical',
+            show: true,
+            feature: {
+                dataView: {
+                    show: true
+                },
+                restore: {
+                    show: true
+                },
+                dataZoom: {
+                    show: true
+                },
+                saveAsImage: {
+                    show: true
+                },
+                magicType: {
+                    type: ['line', 'bar']
+                }
+            }
+        },
+		tooltip: {
+            show: 'true',
+            trigger: 'item'//此处设置成axis会与markPoint鼠标跟随窗冲突
+        },
+		legend: {
+			data: ['销量']
+		},
+		xAxis:{
+			data: ['衬衫','羊毛衫','雪纺衫','裤子','高跟鞋','袜子']
+		},
+		yAxis: {},
+		series: [{
+			name: '销量',
+			type: 'line',
+			data: [5, 20, 36, 10, 10, 20],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值', symbol: 'diamond'},
+                    {type: 'min', name: '最小值', symbol: 'arrow'}
+                ]
+            },
+            markLine: {
+                data:[
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+		}]
+	}
+    myChart.setOption(option);
+</script>
+</body>
+</html>

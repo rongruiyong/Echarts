@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>echarts</title>
+	<style>
+		#div1{
+			width: 600px;
+			height: 600px;
+			border: 1px solid #333;
+		}
+	</style>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src='js/echarts.js'></script>
+	<script>
+		$(function(){
+			var myChart = echarts.init(document.getElementById("div1"));
+				myChart.setOption({
+					title: {
+						text: '异步加载数据'
+					},
+					legend: {
+						show: true,
+						data: ['销量']
+					},
+					tooltip: {
+						
+					},
+					xAxis: {
+						data: []
+					},
+					yAxis: {},
+					series: [{
+						name: '销量',
+						type: 'bar',
+						data: []
+					}]
+				})
+			$.get('echarts_async.php',function(data){
+				var _data = JSON.parse(data);
+				myChart.setOption({
+					xAxis: {
+						data: _data.class
+					},
+					series: [{
+						name: '销量',
+						data: _data.data
+					}]
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="div1">
+		
+	</div>
+</body>
+</html>

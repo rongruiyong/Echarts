@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>饼状图</title>
+	<style>
+		#div1{
+			border: 1px solid #000;
+			height: 500px;
+			width: 500px;
+		}
+	</style>
+	<script type="text/javascript" src="js/echarts.js"></script>
+	<script>
+	window.onload = function(){
+		var myChart = echarts.init(document.getElementById("div1"));
+		var option = {
+			title: {
+				show: true,
+				text: '我是标题',
+				borderWidth: 4,
+				borderColor:'#09f',
+				textStyle: {
+					fontWeight: 'lighter',
+					fontFamily: '宋体',
+				},
+				left: 'center'
+			},
+			legend: {
+				show: true,
+				data: ['销量','库存重量'],
+				left: 'right',
+				borderColor: '#f00',
+				borderWidth: 2,
+				width: 5
+			},
+			tooltip: {},
+			xAxis: {
+				data: ['白菜','胡萝卜','青椒','土豆','茄子','西红柿']
+			},
+			yAxis:{
+
+			},
+			series: [{
+				name: "销量",
+				type: 'bar',
+				data: [200,280,250,265,70,100]
+			},{
+				name: '库存重量',
+				type: 'bar',
+				data: [100,200,150,300,40,276]
+			}]
+		}
+		myChart.setOption(option);
+	}
+		
+	</script>
+</head>
+<body>
+	<div id="div1">
+		
+	</div>
+</body>
+</html>

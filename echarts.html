@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>echarts</title>
+	<style>
+		#ec1{
+			border: 1px solid #000;
+			width: 500px;
+			height: 500px;
+		}
+	</style>
+	<script src="js/echarts.js">
+	</script>
+	<script>
+		window.onload = function(){
+			var ec1 = document.getElementById("ec1");
+			var myChart = echarts.init(ec1);
+			myChart.setOption({
+				title: {
+					text: '蔬菜销量柱状图'
+				},
+				legend: {
+					show: true,
+					data: ['销量']
+				},
+				tooltip:{},
+				xAxis: {
+					data: ['白菜','黄瓜','西红柿', '青椒', '胡萝卜', '茄子']
+				},
+				yAxis: {},
+				series: [{
+					name: '销量',
+					type: 'bar',
+					data: [40,20,30,33,42,52]
+				}]
+			})
+		}
+	</script>
+</head>
+<body>
+	<div id="ec1">
+		
+	</div>
+</body>
+</html>
